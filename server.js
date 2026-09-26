@@ -8,6 +8,7 @@ const tradesRoutes = require('./routes/trades');
 const statsRoutes = require('./routes/stats');
 const uploadRoutes = require('./routes/upload');
 const currencyRoutes = require('./routes/currency');
+const healthRoutes = require('./routes/health');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -15,6 +16,7 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+app.use('/api/health', healthRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/trades', tradesRoutes);
 app.use('/api/stats', statsRoutes);
